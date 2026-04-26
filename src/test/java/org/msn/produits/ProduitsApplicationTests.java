@@ -21,28 +21,45 @@ class ProduitsApplicationTests {
     }
 
     @Test
-    public void testFindProduit(){
+    public void testFindProduit() {
         Produit prod = produitRepository.findById(1L).get();
         System.out.println(prod);
     }
 
     @Test
-    public void testUpdateProduit(){
+    public void testUpdateProduit() {
         Produit prod = produitRepository.findById(1L).get();
         prod.setNomProduit("MacBook Pro M3");
         produitRepository.save(prod);
     }
 
     @Test
-    public void testDeleteProduit(){
+    public void testDeleteProduit() {
         produitRepository.deleteById(1L);
     }
 
     @Test
-    public void testFindAllProduits(){
+    public void testFindAllProduits() {
         List<Produit> produits = produitRepository.findAll();
         for (Produit produit : produits) {
             System.out.println(produit);
         }
     }
+
+    @Test
+    public void testFindProduitByNom() {
+        List<Produit> prod = produitRepository.findByNomProduit("MacBook Pro");
+        for (Produit produit : prod) {
+            System.out.println(produit);
+        }
+    }
+
+    @Test
+    public void testFindProduitByNomContains() {
+        List<Produit> prod = produitRepository.findByNomProduitContains("P");
+        for (Produit produit : prod) {
+            System.out.println(produit);
+        }
+    }
+
 }
