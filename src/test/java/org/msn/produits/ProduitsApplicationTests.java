@@ -101,7 +101,7 @@ class ProduitsApplicationTests {
     @Test
     public void testTrierProduitsNomsPrix() {
         List<Produit> prods =
-                produitRepository.findByOrderByNomProduitAsc();
+                produitRepository.trierProduitsNomsPrix();
         for (Produit p : prods) {
             System.out.println(p);
         }
