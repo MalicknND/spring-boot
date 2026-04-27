@@ -27,15 +27,26 @@ public class ProduitRESTController {
         return produitService.getAllProduits();
     }
 
-//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    //    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @GetMapping("/{id}")
     // indique que cette méthode doit être appelée pour les requêtes HTTP GET avec un chemin contenant un paramètre d'identification (id) du produit
     public Produit getProduitById(@PathVariable("id") Long id) {
         return produitService.getProduit(id);
     }
 
+
     @PostMapping // indique que cette méthode doit être appelée pour les requêtes HTTP POST
     public Produit createProduit(@RequestBody Produit produit) {
         return produitService.saveProduit(produit);
+    }
+
+    @PutMapping // indique que cette méthode doit être appelée pour les requêtes HTTP PUT
+    public Produit updateProduit(@RequestBody Produit produit) {
+        return produitService.updateProduit(produit);
+    }
+
+    @DeleteMapping("/{id}") // indique que cette méthode doit être appelée pour les requêtes HTTP DELETE
+    public void deleteProduit(@PathVariable("id") Long id) {
+        produitService.deleteProduitById(id);
     }
 }
