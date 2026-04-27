@@ -1,6 +1,7 @@
 package org.msn.produits;
 
 import org.junit.jupiter.api.Test;
+import org.msn.produits.entities.Categorie;
 import org.msn.produits.entities.Produit;
 import org.msn.produits.repos.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;

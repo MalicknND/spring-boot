@@ -1,9 +1,15 @@
 package org.msn.produits.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Categorie {
     @Id
@@ -16,32 +22,8 @@ public class Categorie {
     @OneToMany(mappedBy = "categorie")
     private List<Produit> produits;
 
-    public Categorie() {
-        super();
-    }
 
-    public Long getIdCat() {
-        return idCat;
-    }
 
-    public void setIdCat(Long idCat) {
-        this.idCat = idCat;
-    }
 
-    public String getNomCat() {
-        return nomCat;
-    }
-
-    public void setNomCat(String nomCat) {
-        this.nomCat = nomCat;
-    }
-
-    public Double getDescriptionCat() {
-        return descriptionCat;
-    }
-
-    public void setDescriptionCat(Double descriptionCat) {
-        this.descriptionCat = descriptionCat;
-    }
 }
 
