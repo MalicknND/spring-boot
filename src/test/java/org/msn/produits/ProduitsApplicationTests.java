@@ -81,4 +81,12 @@ class ProduitsApplicationTests {
         }
     }
 
+    @Test
+    public void testFindByCategorieIdCat() {
+        List<Produit> prod = produitRepository.findByCategorieIdCat(1L);
+        for (Produit p : prod) {
+            System.out.println(p);
+        }
+    }
+
 }
