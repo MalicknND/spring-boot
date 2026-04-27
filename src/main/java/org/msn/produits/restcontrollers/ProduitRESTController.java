@@ -33,4 +33,9 @@ public class ProduitRESTController {
     public Produit getProduitById(@PathVariable("id") Long id) {
         return produitService.getProduit(id);
     }
+
+    @PostMapping // indique que cette méthode doit être appelée pour les requêtes HTTP POST
+    public Produit createProduit(@RequestBody Produit produit) {
+        return produitService.saveProduit(produit);
+    }
 }
