@@ -1,5 +1,6 @@
 package org.msn.produits.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +19,9 @@ public class Categorie {
     private String nomCat;
     private String descriptionCat;
 
+
     @OneToMany(mappedBy = "categorie")
+    @JsonIgnore // pour éviter la sérialisation de la liste des produits lors de la conversion en JSON
     private List<Produit> produits;
 
 }
