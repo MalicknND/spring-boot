@@ -89,4 +89,23 @@ class ProduitsApplicationTests {
         }
     }
 
+    @Test
+    public void testfindByOrderByNomProduitAsc() {
+        List<Produit> prods =
+                produitRepository.findByOrderByNomProduitAsc();
+        for (Produit p : prods) {
+            System.out.println(p);
+        }
+    }
+
+    @Test
+    public void testTrierProduitsNomsPrix() {
+        List<Produit> prods =
+                produitRepository.findByOrderByNomProduitAsc();
+        for (Produit p : prods) {
+            System.out.println(p);
+        }
+    }
+
+
 }
