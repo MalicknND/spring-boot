@@ -64,8 +64,18 @@ class ProduitsApplicationTests {
     }
 
     @Test
-    public void testFindByNomPrix(){
+    public void testFindByNomPrix() {
         List<Produit> prod = produitRepository.findByNomPrix("Macbook Pro", 1000.0);
+        for (Produit p : prod) {
+            System.out.println(p);
+        }
+    }
+
+    @Test
+    public void testFindByCategorie() {
+        Categorie cat = new Categorie();
+        cat.setIdCat(1L);
+        List<Produit> prod = produitRepository.findByCategorie(cat);
         for (Produit p : prod) {
             System.out.println(p);
         }

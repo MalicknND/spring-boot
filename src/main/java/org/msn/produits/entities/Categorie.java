@@ -16,7 +16,7 @@ public class Categorie {
     private Long idCat;
 
     private String nomCat;
-    private Double descriptionCat;
+    private String descriptionCat;
 
     @OneToMany(mappedBy = "categorie")
     private List<Produit> produits;
