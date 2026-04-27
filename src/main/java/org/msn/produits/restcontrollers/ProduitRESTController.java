@@ -23,8 +23,14 @@ public class ProduitRESTController {
     //@RequestMapping(method = RequestMethod.GET) // indique que cette méthode doit être appelée pour les requêtes HTTP GET, et le chemin de la requête est défini par l'annotation @RequestMapping au niveau de la classe
     @GetMapping
     // indique que cette méthode doit être appelée pour les requêtes HTTP GET
-    List<Produit> getAllProduits() {
-        ;
+    public List<Produit> getAllProduits() {
         return produitService.getAllProduits();
+    }
+
+//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping("/{id}")
+    // indique que cette méthode doit être appelée pour les requêtes HTTP GET avec un chemin contenant un paramètre d'identification (id) du produit
+    public Produit getProduitById(@PathVariable("id") Long id) {
+        return produitService.getProduit(id);
     }
 }
