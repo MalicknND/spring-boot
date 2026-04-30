@@ -39,6 +39,7 @@ public class ProduitServiceImpl implements ProduitService {
 
     @Override
     public Produit getProduit(Long id) {
+        // à ne pas faire en production, car cela peut lancer une exception si l'id n'existe pas
         return produitRepository.findById(id).get();
     }
 
