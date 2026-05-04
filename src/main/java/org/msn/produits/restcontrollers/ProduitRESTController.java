@@ -21,7 +21,7 @@ public class ProduitRESTController {
     private final ProduitService produitService; // déclare une dépendance à un service de gestion des produits, qui sera injecté automatiquement par Spring  via le constructeur généré par @AllArgsConstructor
 
     //@RequestMapping(method = RequestMethod.GET) // indique que cette méthode doit être appelée pour les requêtes HTTP GET, et le chemin de la requête est défini par l'annotation @RequestMapping au niveau de la classe
-    @GetMapping
+    @GetMapping("/all")
     // indique que cette méthode doit être appelée pour les requêtes HTTP GET
     public List<Produit> getAllProduits() {
         return produitService.getAllProduits();
