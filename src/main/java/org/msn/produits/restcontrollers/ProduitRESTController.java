@@ -46,7 +46,8 @@ public class ProduitRESTController {
     }
 
     @DeleteMapping("/{id}") // indique que cette méthode doit être appelée pour les requêtes HTTP DELETE
-    public void deleteProduit(@PathVariable("id") Long id) {
+    public void deleteProduit(@PathVariable("id"
+) Long id) {
         produitService.deleteProduitById(id);
     }
 
@@ -55,4 +56,10 @@ public class ProduitRESTController {
     public List<Produit> getProduitsByCategorieId(@PathVariable("idCat") Long idCat) {
         return produitService.findByCategorieIdCat(idCat);
     }
+    @RequestMapping(value="/prodsByName/{nom}",method = RequestMethod.GET)
+//    @GetMapping("/prodsByName/{nom}")
+    public List<Produit> findByNomProduitContains(@PathVariable("nom") String nom) {
+        return produitService.findByNomProduitContains(nom);
+    }
+
 }
