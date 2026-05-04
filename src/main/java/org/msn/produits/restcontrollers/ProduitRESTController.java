@@ -28,35 +28,35 @@ public class ProduitRESTController {
     }
 
     //    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    @GetMapping("/{id}")
+    @GetMapping("/getById/{id}")
     // indique que cette méthode doit être appelée pour les requêtes HTTP GET avec un chemin contenant un paramètre d'identification (id) du produit
     public Produit getProduitById(@PathVariable("id") Long id) {
         return produitService.getProduit(id);
     }
 
 
-    @PostMapping // indique que cette méthode doit être appelée pour les requêtes HTTP POST
+    @PostMapping("/addprod") // indique que cette méthode doit être appelée pour les requêtes HTTP POST
     public Produit createProduit(@RequestBody Produit produit) {
         return produitService.saveProduit(produit);
     }
 
-    @PutMapping // indique que cette méthode doit être appelée pour les requêtes HTTP PUT
+    @PutMapping("/updateprod") // indique que cette méthode doit être appelée pour les requêtes HTTP PUT
     public Produit updateProduit(@RequestBody Produit produit) {
         return produitService.updateProduit(produit);
     }
 
-    @DeleteMapping("/{id}") // indique que cette méthode doit être appelée pour les requêtes HTTP DELETE
-    public void deleteProduit(@PathVariable("id"
-) Long id) {
+    @DeleteMapping("/delprod/{id}") // indique que cette méthode doit être appelée pour les requêtes HTTP DELETE
+    public void deleteProduit(@PathVariable("id") Long id) {
         produitService.deleteProduitById(id);
     }
 
-//    @RequestMapping(value = "/prodscat/{idCat}", method = RequestMethod.GET)
+    //    @RequestMapping(value = "/prodscat/{idCat}", method = RequestMethod.GET)
     @GetMapping("/prodscat/{idCat}")
     public List<Produit> getProduitsByCategorieId(@PathVariable("idCat") Long idCat) {
         return produitService.findByCategorieIdCat(idCat);
     }
-    @RequestMapping(value="/prodsByName/{nom}",method = RequestMethod.GET)
+
+    @RequestMapping(value = "/prodsByName/{nom}", method = RequestMethod.GET)
 //    @GetMapping("/prodsByName/{nom}")
     public List<Produit> findByNomProduitContains(@PathVariable("nom") String nom) {
         return produitService.findByNomProduitContains(nom);
