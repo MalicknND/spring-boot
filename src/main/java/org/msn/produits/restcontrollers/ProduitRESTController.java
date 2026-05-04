@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.msn.produits.entities.Produit;
 import org.msn.produits.service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,6 +37,7 @@ public class ProduitRESTController {
 
 
     @PostMapping("/addprod") // indique que cette méthode doit être appelée pour les requêtes HTTP POST
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Produit createProduit(@RequestBody Produit produit) {
         return produitService.saveProduit(produit);
     }
