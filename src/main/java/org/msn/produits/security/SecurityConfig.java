@@ -33,6 +33,7 @@ public class SecurityConfig {
                 }))
                 .authorizeHttpRequests(requests ->
                         requests
+                                .requestMatchers(HttpMethod.GET, "/api/images/**").permitAll()
                                 .requestMatchers("/api/all/**").hasAnyAuthority("USER", "ADMIN")
                                 .requestMatchers(HttpMethod.GET, "/api/getbyid/**").hasAnyAuthority("ADMIN", "USER")
                                 .requestMatchers(HttpMethod.POST, "/api/addprod/**").hasAnyAuthority("ADMIN")
